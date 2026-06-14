@@ -1,0 +1,114 @@
+:root {
+  --verde: #16a34a;
+  --teal: #0f766e;
+  --cinza: #6b7280;
+  --cinza-claro: #e5e7eb;
+  --vermelho: #dc2626;
+  --ambar: #d97706;
+  --azul: #2563eb;
+  --borda: #e5e7eb;
+  --fundo: #f3f4f6;
+  --texto: #111827;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--fundo); color: var(--texto);
+}
+
+/* --------------------------------------------------------------- estrutura -- */
+.shell { display: flex; min-height: 100vh; }
+
+.barra-lateral {
+  width: 230px; background: #0b1220; color: #cbd5e1;
+  display: flex; flex-direction: column; padding: 20px 14px; flex-shrink: 0;
+}
+.barra-lateral .marca { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 24px; padding: 0 6px; }
+.barra-lateral .marca span {
+  display: inline-block; margin-left: 6px; font-size: 11px; background: var(--teal);
+  padding: 2px 8px; border-radius: 999px; vertical-align: middle;
+}
+.barra-lateral nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.barra-lateral nav a {
+  color: #cbd5e1; text-decoration: none; padding: 11px 14px; border-radius: 9px; font-weight: 600; font-size: 15px;
+}
+.barra-lateral nav a:hover { background: #1e293b; color: #fff; }
+.barra-lateral nav a.active { background: var(--verde); color: #fff; }
+.rodape-lateral { display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+
+.area { flex: 1; padding: 28px 32px; overflow-x: auto; }
+
+/* ------------------------------------------------------------------ login -- */
+.centro { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.login { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 14px; }
+.marca-login { font-size: 24px; }
+
+/* ----------------------------------------------------------------- cartões -- */
+.cartao { background: #fff; border: 1px solid var(--borda); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+
+.cabecalho { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+h1 { font-size: 24px; } h2 { font-size: 17px; margin-bottom: 14px; }
+
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.stat-card { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.stat-num { font-size: 30px; font-weight: 800; }
+.stat-titulo { font-size: 13px; color: var(--cinza); }
+
+.duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 900px) { .duas-colunas { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------------------ donut -- */
+.donut-wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.donut-num { font-size: 30px; font-weight: 800; fill: var(--texto); }
+.donut-leg { font-size: 12px; fill: var(--cinza); }
+.legenda { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.legenda li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.ponto { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* ----------------------------------------------------------------- tabelas -- */
+.tabela { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tabela th { text-align: left; padding: 10px 12px; color: var(--cinza); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; border-bottom: 2px solid var(--borda); }
+.tabela td { padding: 12px; border-bottom: 1px solid var(--borda); vertical-align: middle; }
+.tabela tr:last-child td { border-bottom: none; }
+.mono { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; }
+.acoes { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.lista-simples { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.lista-simples li { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+/* ------------------------------------------------------------------- tags -- */
+.tag { font-size: 12px; padding: 3px 9px; border-radius: 999px; font-weight: 600; background: var(--cinza-claro); color: #374151; }
+.tag.verde { background: #dcfce7; color: #15803d; }
+.tag.vermelho { background: #fee2e2; color: var(--vermelho); }
+.tag.ambar { background: #fef3c7; color: #92400e; }
+.tag.cinza { background: var(--cinza-claro); color: #374151; }
+.tag.status-aberto { background: #dbeafe; color: #1e40af; }
+.tag.status-em_andamento { background: #fef3c7; color: #92400e; }
+.tag.status-fechado { background: var(--cinza-claro); color: #374151; }
+
+/* ------------------------------------------------------------------ botões -- */
+.botao { font: inherit; font-weight: 700; border: none; border-radius: 9px; padding: 10px 16px; cursor: pointer; }
+.botao:disabled { opacity: .5; cursor: not-allowed; }
+.botao.primario { background: var(--verde); color: #fff; }
+.botao.secundario { background: #fff; color: var(--texto); border: 1px solid var(--cinza-claro); }
+.botao.pequeno { padding: 6px 11px; font-size: 13px; }
+.botao.bloco { width: 100%; }
+.link-btn { background: none; border: none; color: var(--azul); cursor: pointer; font: inherit; text-decoration: underline; }
+
+.filtros { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--cinza-claro); background: #fff; border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 13px; cursor: pointer; font-weight: 600; color: var(--cinza); }
+.chip.ativo { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+/* ------------------------------------------------------------------ forms -- */
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #374151; }
+input, select, textarea { font: inherit; font-weight: 400; padding: 11px; border: 1px solid var(--cinza-claro); border-radius: 9px; }
+input:focus, select:focus { outline: 2px solid var(--verde); border-color: var(--verde); }
+
+/* ------------------------------------------------------------------ modal -- */
+.modal-fundo { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
+.modal { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 14px; margin: 0; max-height: 90vh; overflow-y: auto; }
+.modal-botoes { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+.erro { color: var(--vermelho); font-size: 14px; }
+.suave { color: var(--cinza); }
+.aviso { background: #fef3c7; color: #92400e; padding: 10px 12px; border-radius: 9px; font-size: 13px; }
